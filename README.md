@@ -1,85 +1,60 @@
-# **cloub**, Location-based Social Networking App #
+# Cloub
 
-##**What Database Should Look Like**
+## Authors
+ - Chan Park
+  - Jeffrey Li
+   
+## Purpose
+   Cloub is a location-based message board for users to post locally and view 
+   posts on a map across the world.
 
-```
-#!JSON
+## Features
+- Ability to see public posts around the world
+- See posts based on locations and users’ followings
+- Browse through a feed of posts made by users the user follows
 
-"database": {
-    "geofire": {
-        "postId": {
-             g: "hashkey", 
-             l: {
-                 "lat": latitude,
-                 "long": longitude"
-             }
-        }
-    },
-    "users" : {
-        "user.uid": {
-            "username": userId,
-            "email": email,
-            "profilePictureUrl": url,
-            "posts": {
-                "postId": {
-                    "timestamp": timestamp,
-                    "pictureUrl": url # this should be medium size picture
-                }
-                
-            }
-        }
-    },
-    "posts" : {
-        "postId": {
-            "writer" : userId,
-            "caption" : text,
-            "comments" : {
-                "commentId": {
-                    "commenter": userId,
-                    "comment": comment
-                },
-            },
-            "pictureUrl" : url,
-            "likes" : number
-        }
-    }
-}
-```
-# **How do you download posts?**
-First off, GeoFire regionQuery queries all postId's on a certain region(where user scrolls on the map). 
+## Control Flow
+- User first creates an account
+- After logging in, user can bounce among three controllers to:
+ - Map of the world with a color-coded identifier that lets the user know how 
+  many posts are centered in a location.
+   - If the user decides to zoom in, more pins will show up but the number of 
+    posts per pin goes down. When the user zooms in enough to see individual 
+     posts, the user can tap into the post to view it.
+      - The user can also create a post here
+              - When user makes a post, he will fill in text and provide an image 
+                      with the camera
+                              - A post is of text and image. Within a post, the user has the ability 
+                                      to follow the poster and “like” the post
+                                       - Feed of posts from the user’s follow list
+                                               - User can browse posts in an Instagram-like view of posts from the 
+                                                       users he follows
+                                                               - If user taps into a post, he can view the post
+                                                                - User’s profile contains a listing of his past posts from the image
+                                                                        - Once an image is tapped, the user is brought to the posting with the 
+                                                                                text and image from the previous post
 
-# How to scale posts?
-When GeoFire queries posts on the map, you only fetch thumbnail versions of the posts on the map. You only download the contents of the post if the user presses on the annotationView. 
+## Implementation
+### Model
+- User.swift 
+- Post.swift 
 
-To make this work, each time a user posts, you are going to store two images, one shrinked image, and one original image. 
+### View
+- ProfileView
+- MapView
+- PostView
+- LoginView
+- SignUpView
+- FeedView
 
-
-** Pseudocode **
-
-```
-#!python
-for each postId:
-    if postId is not in posts:
-        construct a Post instance with postId, and its contents
-        store it into posts dictionary
-```
-
-    
+### Controller
+- ProfileViewController.swift
+- MainViewController.swift
+- MainTabBarController.swift
+- FeedViewController.swift
+- FeedDetailViewController.swift
+- PostViewController.swift
+- LoginViewController.swift
+- SignUpViewController.swift
 
 
-
-##** Bugs to fix later & UI improvements **
-1. Keyboard covers text field in signup view
-2. Applying filter on the picture by swiping left and right in post view
-3. TabBarController item should be vertically centered properly. Quite lopsided currently.
-4. **Pictures are not displayed in order!(ProfileViewController)**
-5. Enable refresh map
-6. If user clicks on a post on someone else's profile view, you can see comments, likes, location.
-7. When user changes it's location, and user presses share button, you have to update its location accordingly
-8. **When user adds post, post is duplicated in the cluster(but not on database)** Solved.
-
-##** How To Order Posts So Top Post Goes on Top of Cluster **
-1. Kingpin
-
-##**Functionalities to work on**
-1. When creating account, check existing username
