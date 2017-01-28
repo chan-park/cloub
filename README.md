@@ -16,23 +16,16 @@
 ## Control Flow
 - User first creates an account
 - After logging in, user can bounce among three controllers to:
- - Map of the world with a color-coded identifier that lets the user know how 
-  many posts are centered in a location.
-   - If the user decides to zoom in, more pins will show up but the number of 
-    posts per pin goes down. When the user zooms in enough to see individual 
-     posts, the user can tap into the post to view it.
-      - The user can also create a post here
-              - When user makes a post, he will fill in text and provide an image 
-                      with the camera
-                              - A post is of text and image. Within a post, the user has the ability 
-                                      to follow the poster and “like” the post
-                                       - Feed of posts from the user’s follow list
-                                               - User can browse posts in an Instagram-like view of posts from the 
-                                                       users he follows
-                                                               - If user taps into a post, he can view the post
-                                                                - User’s profile contains a listing of his past posts from the image
-                                                                        - Once an image is tapped, the user is brought to the posting with the 
-                                                                                text and image from the previous post
+- Map of the world with a color-coded identifier that lets the user know how many posts are centered in a location.
+- If the user decides to zoom in, more pins will show up but the number of posts per pin goes down. When the user zooms in enough to see individual posts, the user can tap into the post to view it.
+- The user can also create a post here
+- When user makes a post, he will fill in text and provide an image with the camera
+- A post is of text and image. Within a post, the user has the ability to follow the poster and “like” the post
+- Feed of posts from the user’s follow list
+- User can browse posts in an Instagram-like view of posts from the users he follows
+- If user taps into a post, he can view the post
+- User’s profile contains a listing of his past posts from the image
+- Once an image is tapped, the user is brought to the posting with the text and image from the previous post
 
 ## Implementation
 ### Model
