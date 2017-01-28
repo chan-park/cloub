@@ -1,0 +1,6 @@
+framework module Pods_cloubUITests {
+  umbrella header "Pods-cloubUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

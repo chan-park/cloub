@@ -1,0 +1,30 @@
+"database": {
+    "users" : {
+        "user.uid": {
+            "username": userId,
+            "email": email,
+            "profilePictureUrl": url,
+            "posts": {
+                "postId": true,
+                "postId": true,
+                "postId": true
+            }
+        }
+    },
+    "posts" : {
+        "postId": {
+            "writer" : userId,
+            "comments" : {
+                "commentId": {
+                    "commenter": userId,
+                    "comment": comment
+                },
+            },
+            "likes" : number,
+            "location": {
+                "lat": latitude,
+                "long": longitude
+            }
+        }
+    },
+}
