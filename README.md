@@ -2,7 +2,7 @@
 
 ## Authors
  - Chan Park
-  - Jeffrey Li
+ - Jeffrey Li
    
 ## Purpose
    Cloub is a location-based message board for users to post locally and view 
